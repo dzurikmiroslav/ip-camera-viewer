@@ -1,0 +1,44 @@
+<div>
+    <h2>
+        Settings
+    </h2>
+
+    <p>
+        <button class="btn btn-success btn-sm pull-right" ng-click="edit()">
+            <span class="glyphicon glyphicon-plus"></span>
+            Add new
+        </button>
+        <div style="clear: both;"></div>
+    </p>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Cameras</div>
+        <table class="table table-striped">
+            <tbody>
+                <tr ng-repeat="camera in cameras track by ::camera.id">
+                    <td>
+                        {{camera.name}}
+                    </td>
+                    <td>
+                        <div class="pull-right">
+                            <button class="btn btn-primary btn-sm" ng-click="moveUp(camera.id)" ng-disabled="$first">
+                                <span class="glyphicon glyphicon-chevron-up"></span>
+                            </button>
+                            <button class="btn btn-primary btn-sm" ng-click="moveDown(camera.id)" ng-disabled="$last">
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            </button>
+                            <button class="btn btn-primary btn-sm" ng-click="edit(camera.id)">
+                                <span class="glyphicon glyphicon-edit"></span>
+                                Edit
+                            </button>
+                            <button class="btn btn-danger btn-sm" ng-click="delete(camera.id)">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                Delete
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="favicon.ico" />
+
+    <title>IP Camera viewer</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/angular-animate.min.js"></script>
+    <script type="text/javascript" src="js/ui-bootstrap-tpls-0.11.0.min.js"></script>
+    <script type="text/javascript" src="js/i18n/angular-locale_en-en.js"></script>
+
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controller/app.js"></script>
+    <script type="text/javascript" src="js/controller/login.js"></script>
+    <script type="text/javascript" src="js/controller/error-dialog.js"></script>
+    <script type="text/javascript" src="js/controller/live.js"></script>
+    <script type="text/javascript" src="js/controller/settings.js"></script>
+    <script type="text/javascript" src="js/controller/camera-dialog.js"></script>
+    <script type="text/javascript" src="js/filter/translate.js"></script>
+    <script type="text/javascript" src="js/service/request.js"></script>
+    <script type="text/javascript" src="js/i18n/locale_en-en.js"></script>
+</head>
+
+<body>
+    <div ng-controller="LoginController" ng-if="!principal" class="container login-view">
+        <form name="loginForm">
+            <h2>{{::'PLEASE_LOGIN' | translate}}</h2>
+            <input type="text" ng-model="username" class="form-control" placeholder="{{::'USERNAME' | translate}}" required autofocus/>
+            <input type="password" ng-model="password" class="form-control" placeholder="{{::'PASSWORD' | translate}}" required/>
+            <button class="btn btn-lg btn-primary btn-block" ng-click="login()" ng-disabled="loginForm.$invalid">
+                {{::'LOGIN' | translate}} <span class="glyphicon glyphicon-log-in"></span>
+            </button>
+        </form>
+    </div>
+
+    <div ng-controller="AppController" ng-if="principal">
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" ng-click="isCollapsed = !isCollapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand" ng-click="isCollapsed = false">IP camera viewer</a>
+                </div>
+                <div class="collapse navbar-collapse" collapse="!isCollapsed">
+                    <ul class="nav navbar-nav">
+                        <li ng-repeat="menuItem in menuItems track by ::menuItem.url" ng-class="{active: isActive(menuItem)}">
+                            <a ng-href="{{::menuItem.url}}" ng-click="$parent.isCollapsed = false">{{menuItem.name}}</a>
+                        </li>
+                    </ul>
+                    <button class="btn btn-danger navbar-btn navbar-right" ng-click="logout()">
+                        Log out <i class="glyphicon glyphicon-log-out"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <ng-view ng-animate></ng-view>
+        </div>
+    </div>
+</body>
+
+</html>

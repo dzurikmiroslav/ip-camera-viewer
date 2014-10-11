@@ -1,0 +1,8 @@
+<div class="modal-header dialog-header-error">
+    <button type="button" class="close" ng-click="cancel()">×</button>
+    <h4 class="modal-title text-danger"><span class="glyphicon glyphicon-warning-sign"></spa> {{::'ERROR' | translate}}</h4>
+</div>
+<div class="modal-body text-danger">{{error.code ? (error.code | translate) : error}}</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="cancel()">{{::'OK' | translate}}</button>
+</div>

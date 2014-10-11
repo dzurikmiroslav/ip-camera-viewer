@@ -1,0 +1,94 @@
+body {
+    padding-top: 50px;
+}
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+
+.starter-template {
+    padding: 40px 15px;
+    text-align: center;
+}
+.login-view {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.login-view h2,
+.login-view .checkbox {
+    margin-bottom: 10px;
+}
+.login-view .checkbox {
+    font-weight: normal;
+}
+.login-view .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.login-view .form-control:focus {
+    z-index: 2;
+}
+.login-view input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.login-view input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.live-prview {
+    padding-bottom: 10px;
+}
+
+/* Custom dialog/modal headers */
+
+.modal-content {
+    overflow: hidden;
+}
+.dialog-header-error {
+    background-color: #d2322d;
+}
+.dialog-header-error .close,
+.dialog-header-error span,
+.dialog-header-error h4 {
+    color: #fff;
+}
+.dialog-header-error .close {
+    opacity: 0.75;
+}
+.loading-dialog .modal-dialog {
+    width: 56px;
+}
+.loading-dialog .glyphicon {
+    font-size: 24px;
+    -webkit-animation: spin 2s infinite linear;
+    -moz-animation: spin 2s infinite linear;
+    animation: spin 2s infinite linear;
+}
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+@keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}

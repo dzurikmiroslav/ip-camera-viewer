@@ -1,0 +1,15 @@
+<div>
+    <h2>Live</h2>
+    <div class="row">
+        <div ng-repeat="camera in cameras track by ::camera.id" class="col-xs-12 col-sm-6 col-md-4 live-prview">
+            <video width="320" height="240" autoplay>
+                <!--<source ng-src="{{'/live/cameras/' + camera.id + '/preview.mp4'}}" type="video/mp4" />-->
+                <source ng-src="{{'/live/cameras/' + camera.id + '/preview.webm'}}" type="video/webm" />
+                <source ng-src="{{'/live/cameras/' + camera.id + '/preview.ogg'}}" type="video/ogg" />
+            </video>
+            <a ng-href="#live/{{camera.id}}">
+                <h4>{{camera.name}}</h4>
+            </a>
+        </div>
+    </div>
+</div>
